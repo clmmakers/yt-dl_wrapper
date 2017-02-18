@@ -1,0 +1,2 @@
+Las tareas de descarga han comenzado a realizarse en segundo plano -aparecera el puntero del ratón como una circunferencia multicolor-; una vez terminen, aquí mismo tendrá información sobre la descarga/s
+		

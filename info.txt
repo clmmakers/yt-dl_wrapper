@@ -1,0 +1,12 @@
+ATENCIÓN, LEA AL MENOS UNA VEZ ESTAS INSTRUCCIONES!!!
+
+Las descargas que realice se harán directamente al escritorio, salvo que seleccione “Crear una carpeta…”, en cuyo caso se le preguntará por el nombre para esta nueva carpeta que también se creará en el Escritorio y será el destino de las descargas.
+
+Una vez haga click en “Descargar”, el proceso de descarga comenzará en segundo plano, en esta ventana recibirá información sobre el proceso de descarga,a la vez,y si mira a su escritorio, las descargas se están realizando. 
+
+Hasta que no terminen las descargas no estará disponible el botón de “Descargas” activo.
+
+Si fuerza la salida del programa mientras se está realizando una descarga, las descargas en segundo plano serán canceladas.
+
+Tenga cuidado si tiene demasiados iconos en el Escritorio.
+		
