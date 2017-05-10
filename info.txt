@@ -8,5 +8,16 @@ Hasta que no terminen las descargas no estará disponible el botón de “Descar
 
 Si fuerza la salida del programa mientras se está realizando una descarga, las descargas en segundo plano serán canceladas.
 
+Actualice youtube-dl periodicamente -soluciona que yt-dl wrapper deje de funcionar-, introduzca el siguiente comando en terminal:
+
+	sudo youtube-dl -U
+
+Si desea convertir el audio a .mp3 directamente -seleccione la opción en el desplegable-, se necesita ffmpeg, le recomiento lo haga a través de Homebrew, mas informacion en https://brew.sh/index_es.html
+
+Instalar ffmpeg a traves de brew es tan fácil como ejecutar en terminal:
+  
+	brew install ffmpeg
+
+
 Tenga cuidado si tiene demasiados iconos en el Escritorio.
 		
