@@ -109,7 +109,7 @@ Begin Window Window1
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
-      InitialValue    =   "Descarga Video/Playlist (usualmente formato .webm, reproducible con VLC o Chrome)\nDescarga Video Alta Calidad (si es posible, formato .mp4) y Audio en Alta calidad (.m4a) desmultiplexado\nDescarga sólo Audio (si es posible, contenedor .webm y formato Opus, normalmente)\nDescarga sólo Audio en Alta Calidad (si es posible)"
+      InitialValue    =   "Descarga Video/Playlist (usualmente formato .webm, reproducible con VLC o Chrome)\nDescarga Video Alta Calidad (si es posible, formato .mp4) y Audio en Alta calidad (.m4a) desmultiplexado\nDescarga sólo Audio (si es posible, contenedor .webm y formato Opus, normalmente)\nDescarga sólo Audio en Alta Calidad (si es posible)\nSolo Audio, Alta calidad en .mp3 (ffmpeg required)"
       Italic          =   False
       Left            =   123
       ListIndex       =   0
@@ -152,6 +152,7 @@ Begin Window Window1
       Selectable      =   False
       TabIndex        =   3
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Url completa:"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -186,6 +187,7 @@ Begin Window Window1
       Selectable      =   False
       TabIndex        =   4
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Selecciona:"
       TextAlign       =   2
       TextColor       =   &c00000000
@@ -299,6 +301,7 @@ Begin Window Window1
       Selectable      =   False
       TabIndex        =   7
       TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Lista de sitios soportados"
       TextAlign       =   0
       TextColor       =   &c0000FF00
@@ -346,7 +349,14 @@ End
 		    "sudo chmod a+rx /usr/local/bin/youtube-dl"+ EndOfLine + endofline +_
 		    "Si se encuentra en Windows o quiere consultar la documentación de youtube-dl visite:" + endofline +_
 		    "https://rg3.github.io/youtube-dl/"+ EndOfLine + endofline +_
-		    "Recuerde que youtube-dl requiere Python"
+		    "Recuerde que youtube-dl requiere Python -incluido de serie en Mac Os" + EndOfLine + endofline +_
+		    "Actualice youtube-dl periodicamente -soluciona que yt-dl wrapper deje de funcionar-, introduzca el siguiente comando en terminal:"+ endofline +_
+		    "sudo youtube-dl -U"+ EndOfLine + endofline +_
+		    "Si desea convertir el audio a .mp3 directamente -seleccione la opción en el desplegable-, se necesita ffmpeg, le recomiento lo haga a través de Homebrew"+ EndOfLine + endofline +_
+		    "mas informacion en https://brew.sh/index_es.html"+ EndOfLine + endofline +_
+		    "instalar ffmpeg a traves de brew es tan fácil como ejecutar en terminal:"+ EndOfLine + endofline +_
+		    "brew install ffmpeg"
+		    
 		  else
 		    TextArea1.Text= info
 		  end if
@@ -388,7 +398,7 @@ End
 		  else
 		    destino = " ~/Desktop/'%(title)s.%(ext)s'"
 		  end if
-		  
+		  dim chek as String=" && echo ""jobdonebaby"""
 		  
 		  'dim sh as new Shell
 		  sh = new shell
@@ -405,15 +415,20 @@ End
 		    
 		    'TextArea1.Text=sh.Result
 		  case 1 //video alta calidad y audio alta calidad descompuesto en mp4
-		    sh.Execute ("/usr/local/bin/youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -o"+destino+ source)
+		    sh.Execute ("/usr/local/bin/youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -o"+destino+ source+chek)
 		    
 		    'TextArea1.Text=sh.Result
 		  case 2 //Audio solo
-		    sh.Execute ("/usr/local/bin/youtube-dl -x -o "+destino+ source)
+		    sh.Execute ("/usr/local/bin/youtube-dl -x -o "+destino+ source+chek)
 		    
 		    'TextArea1.Text=sh.Result
 		  case 3 //Audio solo en alta calidad
-		    sh.Execute ("/usr/local/bin/youtube-dl -f 'bestaudio[ext=m4a]/best[ext=mp3]/best' -o "+destino+ source)
+		    sh.Execute ("/usr/local/bin/youtube-dl -f 'bestaudio[ext=m4a]/best[ext=mp3]/best' -o "+destino+ source+chek)
+		    
+		  case 4 //Audio solo en alta calidad
+		    //sh.Execute ("/usr/local/bin/youtube-dl -f 'bestaudio[ext=m4a]/best[ext=mp3]/best'  --ffmpeg-location /usr/local/bin/ffmpeg -o "+destino+ source)
+		    sh.Execute("/usr/local/bin/youtube-dl -f bestaudio --ffmpeg-location /usr/local/bin/ffmpeg -o" + destino +" -x --audio-quality 0 --audio-format mp3 --add-metadata --embed-thumbnail -i "+source+chek)
+		    
 		    
 		    'TextArea1.Text=sh.Result
 		    
@@ -457,7 +472,10 @@ End
 		      end if
 		      TextArea1.ScrollPosition=lastline
 		    else
-		      PushButton1.Enabled=True
+		      dim charpos as Integer=InStr(TextArea1.Text,"jobdonebaby")
+		      if charpos <> 0 then
+		        PushButton1.Enabled=True
+		      end if
 		    end if
 		  else
 		  end if
