@@ -2,19 +2,19 @@ ATENCIÓN, LEA AL MENOS UNA VEZ ESTAS INSTRUCCIONES!!!
 
 Las descargas que realice se harán directamente al escritorio, salvo que seleccione “Crear una carpeta…”, en cuyo caso se le preguntará por el nombre para esta nueva carpeta que también se creará en el Escritorio y será el destino de las descargas.
 
-Una vez haga click en “Descargar”, el proceso de descarga comenzará en segundo plano, en esta ventana recibirá información sobre el proceso de descarga,a la vez,y si mira a su escritorio, las descargas se están realizando. 
+Una vez haga click en “Descarga”, el proceso de descarga comenzará en segundo plano, en esta ventana recibirá información sobre el proceso de descarga, a la vez, y si mira a su escritorio, las descargas se están realizando. Una vez terminada la descarga/s en la ventana de información aparecerá el mensaje "JOB DONE BABY!!!"
 
-Hasta que no terminen las descargas no estará disponible el botón de “Descargas” activo.
+Hasta que no termine/n las descarga/s no estará disponible el botón de “Descarga” activo.
 
 Si fuerza la salida del programa mientras se está realizando una descarga, las descargas en segundo plano serán canceladas.
 
-Actualice youtube-dl periodicamente -soluciona que yt-dl wrapper deje de funcionar-, introduzca el siguiente comando en terminal:
+Actualice yt-dlp periódicamente -soluciona que yt-dl wrapper deje de funcionar, o lo haga con una tasa de descarga baja-, introduzca el siguiente comando en terminal:
 
-	sudo youtube-dl -U
+	brew upgrade yt-dlp/taps/yt-dlp
 
-Si desea convertir el audio a .mp3 directamente -seleccione la opción en el desplegable-, se necesita ffmpeg, le recomiento lo haga a través de Homebrew, mas informacion en https://brew.sh/index_es.html
+Si desea convertir el audio a .mp3 directamente -seleccione la opción en el desplegable-, se necesita ffmpeg, a través de Homebrew, mas información en https://brew.sh/index_es.html
 
-Instalar ffmpeg a traves de brew es tan fácil como ejecutar en terminal:
+Instalar ffmpeg a través de brew es tan fácil como ejecutar en terminal:
   
 	brew install ffmpeg
 

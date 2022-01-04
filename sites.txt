@@ -1,5 +1,7 @@
-(Recuerde que este Wrapper de Youtube-dl no implementa todas las características disponibles en el terminal)
-Visite https://rg3.github.io/youtube-dl/ para más información.
+Recuerde que este Wrapper de yt-dlp (foro de youtube-dl) no implementa todas las características disponibles en el programa desde el terminal.
+
+Si quiere mas información visite la página de yt-dlp en Github:
+https://github.com/yt-dlp/yt-dlp
 
 Lista de los sites soportados, ordenados alfabéticamente:
 
